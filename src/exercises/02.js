@@ -33,9 +33,11 @@ class ClassComp02 extends Component {
 
 const FunctionalComponent02 = () => {
   const [isBored, setIsBored] = useState(false);
+  const [isTime, setIsTime] = useState(Date.now());
 
   return (
     <div>
+      <h3>{isTime}</h3>
       <h1>
         {isBored
           ? "Yeah, I'm bored too."
@@ -43,10 +45,22 @@ const FunctionalComponent02 = () => {
       </h1>
       <div>
         {!isBored && (
-          <button onClick={() => setIsBored(true)}>I'm Bored</button>
+          <button
+            onClick={() => {
+              setIsBored(true);
+              setIsTime(Date.now());
+            }}>
+            I'm Bored
+          </button>
         )}
         {isBored && (
-          <button onClick={() => setIsBored(false)}>I'm Not Bored</button>
+          <button
+            onClick={() => {
+              setIsBored(false);
+              setIsTime(Date.now());
+            }}>
+            I'm Not Bored
+          </button>
         )}
       </div>
     </div>
